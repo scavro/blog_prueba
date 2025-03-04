@@ -1,8 +1,8 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import NavBar from '@/components/NavBar.astro';
-import stickers from   "@/data/stickers.json";
-import Sticker from '@/components/Sticker.astro';
+import NavBar from "@/components/NavBar.astro"
+import stickers from  "@/data/stickers.json";
+import Sticker from "@/components/Sticker.astro";
 
 console.log("Jelouuuuuuu");
 const name = "aqui van los stickers de la pagina";
@@ -24,7 +24,30 @@ console.log(dato);*/
 		flex-wrap: wrap;
 		gap: 20px;
 	}
+	.celebrate-button{
+		width: 150px;
+		height: 60px;
+	}
+	.button-div{
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		margin: 50px;
+		margin-bottom: 60px;
+	}
 </style>
+
+<script>
+import NavBar from "@/components/NavBar.astro";
+
+	console.log("Hello¡¡ estoy en el cliente");
+	console.log({NavBar});
+	import confetti from 'canvas-confetti';
+	const button = document.querySelector(".celebrate-button");
+	button.addEventListener('click', () => confetti());
+	console.log(confetti)
+
+</script>
 
 <BaseLayout title="Página principal" description="Pagina principal del blog sobre la antigua roma"> 
 	<h1>Castro</h1>
@@ -32,6 +55,10 @@ console.log(dato);*/
 		de Fidel Castro
 	</p>
 	<p>{name}</p>
+
+	<div class="button-div">
+		<button class="celebrate-button">Celebrate¡¡¡</button>
+	</div>
 
 	<div class="sticker-collection">
 		{ stickers.map (sticker => <Sticker data={sticker}></Sticker>)	}
