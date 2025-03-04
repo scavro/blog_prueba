@@ -5,10 +5,12 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "deploy": "gh-pages -d dist --repo https://github.com/scavro/blog_prueba.git",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.3.1"
+    "astro": "^5.3.1",
+    "gh-pages": "^6.3.0"
   }
 }

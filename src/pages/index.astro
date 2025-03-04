@@ -1,35 +1,42 @@
 ---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import NavBar from '@/components/NavBar.astro';
+import stickers from   "@/data/stickers.json";
+import Sticker from '@/components/Sticker.astro';
+
+console.log("Jelouuuuuuu");
+const name = "aqui van los stickers de la pagina";
+/*const dato = await fetch ("https://randomuser.me/api").then 
+(response => response.json());
+console.log(dato);*/
+
+/* Esto seria codigo javascript para sacar los datos sticker del json
+{ stickers.map(sticker => 
+	<div> 
+		<img src={sticker.url} alt={sticker.name}>
+	</div>) }*/
 
 ---
 
-<html lang="es">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Castro</title>
-	</head>
-	<body>
-		<style>
-			body {
-				font-family: Arial, Helvetica, sans-serif;
-				margin: 20px;
-				padding: 50px;
-				background-color: #222;
-				color: #fff;
-			}
-			a {
-				color: #fff;
-				font: 1.5em sans-serif;
-			}
-		</style>
+<style>
+	.sticker-collection{
+		display: flex;
+		flex-wrap: wrap;
+		gap: 20px;
+	}
+</style>
 
-		<h1>Castro</h1>
+<BaseLayout title="Página principal" description="Pagina principal del blog sobre la antigua roma"> 
+	<h1>Castro</h1>
+	<p>Esta seria la pagina principal del blog de pruebas
+		de Fidel Castro
+	</p>
+	<p>{name}</p>
 
+	<div class="sticker-collection">
+		{ stickers.map (sticker => <Sticker data={sticker}></Sticker>)	}
+	</div>
 
-		<a href="/about">About</a>
-		<a href="/products">Productos</a>
+<NavBar></NavBar>
 
-	</body>
-</html>
+</BaseLayout>
