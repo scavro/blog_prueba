@@ -3,9 +3,11 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import NavBar from "@/components/NavBar.astro"
 import stickers from  "@/data/stickers.json";
 import Sticker from "@/components/Sticker.astro";
+import AstroHeart from '@/components/AstroHeart.astro';
+
 
 console.log("Jelouuuuuuu");
-const name = "aqui van los stickers de la pagina";
+const name = "Esto es una constante";
 /*const dato = await fetch ("https://randomuser.me/api").then 
 (response => response.json());
 console.log(dato);*/
@@ -38,13 +40,18 @@ console.log(dato);*/
 </style>
 
 <script>
-import NavBar from "@/components/NavBar.astro";
+	import NavBar from "@/components/NavBar.astro";
+	import confetti from 'canvas-confetti';
+
 
 	console.log("Hello¡¡ estoy en el cliente");
-	console.log({NavBar});
-	import confetti from 'canvas-confetti';
+	console.log({NavBar});	
 	const button = document.querySelector(".celebrate-button");
-	button.addEventListener('click', () => confetti());
+	if (button) {
+    	button.addEventListener('click', () => confetti());
+	} else {
+    	console.warn("Element with class 'celebrate-button' not found.");
+	}
 	console.log(confetti)
 
 </script>
@@ -63,6 +70,7 @@ import NavBar from "@/components/NavBar.astro";
 	<div class="sticker-collection">
 		{ stickers.map (sticker => <Sticker data={sticker}></Sticker>)	}
 	</div>
+<AstroHeart></AstroHeart>
 
 <NavBar></NavBar>
 
